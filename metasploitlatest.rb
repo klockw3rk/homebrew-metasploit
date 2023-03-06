@@ -2,7 +2,7 @@
 #                /usr/local/Library/Contributions/example-formula.rb
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 
-class Metasploit < Formula
+class Metasploitlatest < Formula
   homepage ""
   head "git://git.kali.org/packages/metasploit.git"
   
