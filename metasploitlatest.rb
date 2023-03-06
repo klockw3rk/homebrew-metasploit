@@ -6,7 +6,7 @@ class Metasploitlatest < Formula
 
   option "with-oracle", "Build with oracle support. Requires Instant Client software, see https://github.com/InstantClientTap/homebrew-instantclient"
 
-  depends_on "ruby@2.3"
+  depends_on "ruby@2.7"
   depends_on "openssl"
   depends_on "libxml2"
   depends_on "libxslt"
