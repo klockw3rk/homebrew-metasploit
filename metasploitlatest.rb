@@ -1,34 +1,38 @@
-class Surprise < Formula
+# Documentation: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md
+#                /usr/local/Library/Contributions/example-formula.rb
+# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 
-  url "https://osx.metasploit.com/metasploitframework-latest.pkg"
-  name "Metasploit Framework"
-  desc "Penetration testing framework"
-  homepage "https://www.metasploit.com/"
+class Metasploit < Formula
+  homepage ""
+  head "git://git.kali.org/packages/metasploit.git"
+  
+
+  # depends_on "cmake" => :build
+  depends_on :x11 # if your formula requires any X11/XQuartz components
 
   def install
-      depends_on formula: "nmap"
+    # ENV.deparallelize  # if your formula fails when building in parallel
 
-      pkg "metasploitframework-latest.pkg"
-      binary "/opt/metasploit-framework/bin/msfbinscan"
-      binary "/opt/metasploit-framework/bin/msfconsole"
-      binary "/opt/metasploit-framework/bin/msfd"
-      binary "/opt/metasploit-framework/bin/msfdb"
-      binary "/opt/metasploit-framework/bin/msfelfscan"
-      binary "/opt/metasploit-framework/bin/msfmachscan"
-      binary "/opt/metasploit-framework/bin/msfpescan"
-      binary "/opt/metasploit-framework/bin/msfrop"
-      binary "/opt/metasploit-framework/bin/msfrpc"
-      binary "/opt/metasploit-framework/bin/msfrpcd"
-      binary "/opt/metasploit-framework/bin/msfvenom"
+    # Remove unrecognized options if warned by configure
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
+    # system "cmake", ".", *std_cmake_args
+    system "make", "install" # if this fails, try separate make/make install steps
+  end
 
-      uninstall script: {
-                  executable: "/opt/metasploit-framework/bin/msfremove",
-                  input:      ["y"],
-                  sudo:       true,
-                },
-                rmdir:  "/opt/metasploit-framework"
-
-      zap trash: "~/.msf4"
-   end
+  test do
+    # `test do` will create, run in and delete a temporary directory.
+    #
+    # This test will fail and we won't accept that! It's enough to just replace
+    # "false" with the main program this formula installs, but it'd be nice if you
+    # were more thorough. Run the test with `brew test metasploit`. Options passed
+    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
+    #
+    # The installed folder is not in the path, so use the entire path to any
+    # executables being tested: `system "#{bin}/program", "do", "something"`.
+    system "false"
+  end
 end
 
