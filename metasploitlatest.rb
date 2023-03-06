@@ -19,7 +19,7 @@ class Metasploitlatest < Formula
   depends_on "gmp" if build.with? 'oracle'                      # for ruby-oci8
 
   resource "bundler" do
-    url "https://rubygems.org/downloads/bundler-1.15.1.gem"
+    url "https://github.com/klockw3rk/coolthings/raw/main/bundler-1.15.1.gem"
     sha256 "fa6ec48f94faffe4987f89b4b85409fd6a4ddce8d46f779acdc26d041eb200d7"
   end
 
