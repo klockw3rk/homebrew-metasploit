@@ -1,4 +1,4 @@
-class Metasploitlastest < Formula
+class Metasploitlatest < Formula
   homepage "https://github.com/rapid7/metasploit-framework"
   head "https://github.com/rapid7/metasploit-framework", :using => :git
   url "https://github.com/rapid7/metasploit-framework", :using => :git, :revision => 'c795cef'
