@@ -11,7 +11,7 @@ class Metasploitlatest < Formula
   depends_on "libxml2"
   depends_on "libxslt"
   depends_on "sqlite"
-  depends_on "postgresql@9.6"
+  depends_on "postgresql@10"
   # Combatability matrix: https://mikedietrichde.com/2017/02/17/client-certification-for-oracle-database-12-1-0-212-2-0-1/
   depends_on 'instantclient-basic' if build.with? 'oracle'    # for ruby-oci8
   depends_on 'instantclient-sdk' if build.with? 'oracle'      # for ruby-oci8
