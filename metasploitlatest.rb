@@ -27,12 +27,12 @@ class Metasploitlatest < Formula
     (buildpath/"vendor/bundle").mkpath
     resources.each do |r|
       r.verify_download_integrity(r.fetch)
-      system("#{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/gem", "install", r.cached_download, "--no-document",
+      system("#{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/gem", "install", r.cached_download, "--no-document",
              "--install-dir", "vendor/bundle")
     end
 
     ENV["GEM_HOME"] = "#{buildpath}/vendor/bundle"
-    system "#{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/ruby", "#{buildpath}/vendor/bundle/bin/bundle", "install",
+    system "#{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/ruby", "#{buildpath}/vendor/bundle/bin/bundle", "install",
            "--no-cache", "--path", "vendor/bundle"
 
     if build.with? "oracle"
@@ -56,7 +56,7 @@ class Metasploitlatest < Formula
       BUNDLED WITH
         1.11.2
       EOS
-      system "#{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/ruby", "#{buildpath}/vendor/bundle/bin/bundle", "install",
+      system "#{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/ruby", "#{buildpath}/vendor/bundle/bin/bundle", "install",
              "--deployment",  "--gemfile", "Gemfile.local", "--no-cache",
              "--path", "vendor/bundle"
     end
@@ -65,55 +65,55 @@ class Metasploitlatest < Formula
       #!/usr/bin/env bash
       export GEM_HOME="#{pkgshare}/vendor/bundle"
       export BUNDLE_GEMFILE="#{pkgshare}/Gemfile"
-      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/ruby #{pkgshare}/msfbinscan "$@"
+      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/ruby #{pkgshare}/msfbinscan "$@"
     EOS
     (bin/"msfconsole").write <<-EOS.undent
       #!/usr/bin/env bash
       export GEM_HOME="#{pkgshare}/vendor/bundle"
       export BUNDLE_GEMFILE="#{pkgshare}/Gemfile"
-      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/ruby #{pkgshare}/msfconsole "$@"
+      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/ruby #{pkgshare}/msfconsole "$@"
     EOS
     (bin/"msfd").write <<-EOS.undent
       #!/usr/bin/env bash
       export GEM_HOME="#{pkgshare}/vendor/bundle"
       export BUNDLE_GEMFILE="#{pkgshare}/Gemfile"
-      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/ruby #{pkgshare}/msfd "$@"
+      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/ruby #{pkgshare}/msfd "$@"
     EOS
     (bin/"msfelfscan").write <<-EOS.undent
       #!/usr/bin/env bash
       export GEM_HOME="#{pkgshare}/vendor/bundle"
       export BUNDLE_GEMFILE="#{pkgshare}/Gemfile"
-      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/ruby #{pkgshare}/msfelfscan "$@"
+      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/ruby #{pkgshare}/msfelfscan "$@"
     EOS
     (bin/"msfmachscan").write <<-EOS.undent
       #!/usr/bin/env bash
       export GEM_HOME="#{pkgshare}/vendor/bundle"
       export BUNDLE_GEMFILE="#{pkgshare}/Gemfile"
-      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/ruby #{pkgshare}/msfmachscan "$@"
+      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/ruby #{pkgshare}/msfmachscan "$@"
     EOS
     (bin/"msfpescan").write <<-EOS.undent
       #!/usr/bin/env bash
       export GEM_HOME="#{pkgshare}/vendor/bundle"
       export BUNDLE_GEMFILE="#{pkgshare}/Gemfile"
-      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/ruby #{pkgshare}/msfpescan "$@"
+      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/ruby #{pkgshare}/msfpescan "$@"
     EOS
     (bin/"msfrop").write <<-EOS.undent
       #!/usr/bin/env bash
       export GEM_HOME="#{pkgshare}/vendor/bundle"
       export BUNDLE_GEMFILE="#{pkgshare}/Gemfile"
-      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/ruby #{pkgshare}/msfrop "$@"
+      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/ruby #{pkgshare}/msfrop "$@"
     EOS
     (bin/"msfrpc").write <<-EOS.undent
       #!/usr/bin/env bash
       export GEM_HOME="#{pkgshare}/vendor/bundle"
       export BUNDLE_GEMFILE="#{pkgshare}/Gemfile"
-      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/ruby #{pkgshare}/msfrpc "$@"
+      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/ruby #{pkgshare}/msfrpc "$@"
     EOS
     (bin/"msfrpcd").write <<-EOS.undent
       #!/usr/bin/env bash
       export GEM_HOME="#{pkgshare}/vendor/bundle"
       export BUNDLE_GEMFILE="#{pkgshare}/Gemfile"
-      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/ruby #{pkgshare}/msfrpcd "$@"
+      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/ruby #{pkgshare}/msfrpcd "$@"
     EOS
     #(bin/"msfupdate").write <<-EOS.undent
     #  #!/usr/bin/env bash
@@ -125,7 +125,7 @@ class Metasploitlatest < Formula
       #!/usr/bin/env bash
       export GEM_HOME="#{pkgshare}/vendor/bundle"
       export BUNDLE_GEMFILE="#{pkgshare}/Gemfile"
-      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.3/bin/ruby #{pkgshare}/msfvenom "$@"
+      #{pkgshare}/vendor/bundle/bin/bundle exec #{HOMEBREW_PREFIX}/opt/ruby@2.7/bin/ruby #{pkgshare}/msfvenom "$@"
     EOS
 
     pkgshare.install Dir['*']
