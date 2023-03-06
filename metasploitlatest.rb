@@ -4,7 +4,7 @@
 
 class Metasploitlatest < Formula
   homepage ""
-  head "git://git.kali.org/kalilinux/packages/metasploit-framework.git"
+  head "https://gitlab.com/kalilinux/packages/metasploit-framework.git"
   
 
   
